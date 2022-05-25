@@ -58,7 +58,18 @@ uint64_t l2cachePenalties; // L2$ penalties
 //
 //TODO: Add your Cache data structures here
 //
+typedef struct block {
+  struct block *next_block, *prev_block;
+  int tag_bit;
+  int dirty_bit;
+  int valid_bit;
+  int value;
+} block;
 
+typedef struct set{
+  int size;
+  block *first, *last;
+} set;
 //------------------------------------//
 //          Cache Functions           //
 //------------------------------------//
